@@ -20,9 +20,6 @@ public class Student {
     private Long id;
     private String name;
     private String email;
-    private LocalDate dateOfBirth;
-    @Transient
-    private Integer age;
 
     @Override
     public String toString() {
@@ -30,8 +27,6 @@ public class Student {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", age=" + age +
                 '}';
     }
 
@@ -59,35 +54,13 @@ public class Student {
         this.email = email;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Integer getAge() {
-        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public Student() {
     }
 
-    public Student(Long id, String name, String email, LocalDate dateOfBirth) {
-        this.id = id;
+    public Student(String name, String email) {
         this.name = name;
         this.email = email;
-        this.dateOfBirth = dateOfBirth;
     }
 
-    public Student(String name, String email, LocalDate dateOfBirth) {
-        this.name = name;
-        this.email = email;
-        this.dateOfBirth = dateOfBirth;
-    }
 }
