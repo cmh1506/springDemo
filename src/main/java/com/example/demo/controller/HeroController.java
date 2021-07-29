@@ -21,9 +21,16 @@ public class HeroController {
         return heroService.getHeros();
     }
 
-    @GetMapping( "/getHero/{heroId}")
-    public Hero getHero(@PathVariable("heroId") Long heroId){
-        return heroService.findById(heroId);
+    @GetMapping( "/getHero/{id}")
+    public Hero getHero(@PathVariable("id") Long id){
+        Hero toReturn = heroService.findById(id);
+        toReturn.setName(toReturn.getName() + " Baby");
+        return toReturn;
+    }
+
+    @PutMapping(path = "/heros")
+    public void updateStudent(@RequestBody Hero hero){
+        heroService.updateHero(hero);
     }
 
 }

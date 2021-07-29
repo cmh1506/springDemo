@@ -35,11 +35,8 @@ public class HeroService {
 
 
     @Transactional
-    public void updateHero(Long heroId, String name) {
-        Hero hero = heroRepository.findById(heroId).orElseThrow(() -> new IllegalStateException("Hero with id " + heroId + " does not exist."));
-        if(name != null && name.length() > 1 && !Objects.equals(hero.getName(), name)){
-            hero.setName(name);
-        }
+    public void updateHero(Hero hero) {
+        heroRepository.saveAndFlush(hero);
     }
 
     public Hero findById(Long heroId) {
