@@ -45,4 +45,8 @@ public class HeroService {
         toReturn = x.orElse(null);
         return toReturn;
     }
+
+    public List<Hero> getHerosBySearchterm(String term) {
+        return heroRepository.findHeroesByNameStartingWith(term);
+    }
 }

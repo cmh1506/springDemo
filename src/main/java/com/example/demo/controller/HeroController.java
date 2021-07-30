@@ -21,6 +21,11 @@ public class HeroController {
         return heroService.getHeros();
     }
 
+    @GetMapping("/searchHeroes/{name}")
+    public List<Hero> getHerosBySearchterm(@PathVariable("name") String name){
+        return heroService.getHerosBySearchterm(name);
+    }
+
     @GetMapping( "/getHero/{id}")
     public Hero getHero(@PathVariable("id") Long id){
         Hero toReturn = heroService.findById(id);
@@ -29,8 +34,18 @@ public class HeroController {
     }
 
     @PutMapping(path = "/heros")
-    public void updateStudent(@RequestBody Hero hero){
+    public void updateHero(@RequestBody Hero hero){
         heroService.updateHero(hero);
+    }
+
+    @PostMapping(path = "/heros")
+    public Hero addHero(@RequestBody Hero hero){
+        heroService.addNewHero(hero);
+        return hero;
+    }
+    @DeleteMapping(path = "/heros/{id}")
+    public void deleteHero(@PathVariable("id") Long id){
+        heroService.deleteHero(id);
     }
 
 }
