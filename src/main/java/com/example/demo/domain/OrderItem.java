@@ -5,7 +5,7 @@ import java.util.Currency;
 
 @Entity
 @Table(name = "order_item", schema = "orderapp")
-public class Order_item {
+public class OrderItem {
     @Id
     @SequenceGenerator(
             name = "order_item_sequence",
@@ -17,6 +17,9 @@ public class Order_item {
             generator = "order_item_sequence"
     )
     private Long id;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order order;
     private String name;
     private Currency price;
 }
