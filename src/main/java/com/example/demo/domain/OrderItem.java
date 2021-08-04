@@ -20,22 +20,24 @@ public class OrderItem {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
-    private String name;
-    private Currency price;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    private Item item;
+    private Integer quantity;
 
     public OrderItem() {
     }
 
-    public OrderItem(Order order, String name, Currency price) {
+    public OrderItem(Order order, Item item, String name, Currency price, Integer quantity) {
         this.order = order;
-        this.name = name;
-        this.price = price;
+        this.item = item;
+        this.quantity = quantity;
     }
 
-    public OrderItem(Long id, Order order, String name, Currency price) {
+    public OrderItem(Long id, Order order, Item item, String name, Currency price, Integer quantity) {
         this.id = id;
         this.order = order;
-        this.name = name;
-        this.price = price;
+        this.item = item;
+        this.quantity = quantity;
     }
 }

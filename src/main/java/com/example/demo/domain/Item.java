@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Currency;
 
 @Entity
@@ -18,17 +19,17 @@ public class Item {
     )
     private Long id;
     private String name;
-    private Currency price;
+    private BigDecimal price;
 
     public Item() {
     }
 
-    public Item(String name, Currency price) {
+    public Item(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }
 
-    public Item(Long id, String name, Currency price) {
+    public Item(Long id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.price = price;
