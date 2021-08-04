@@ -1,8 +1,6 @@
 package com.example.demo.domain;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.Period;
 
 @Entity
 @Table(name = "student", schema = "student")
@@ -20,6 +18,9 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     @Override
     public String toString() {
@@ -58,9 +59,10 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String email) {
+    public Student(String name, String email, User user) {
         this.name = name;
         this.email = email;
+        this.user = user;
     }
 
 }

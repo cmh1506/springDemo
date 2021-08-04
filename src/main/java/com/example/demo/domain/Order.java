@@ -22,4 +22,20 @@ public class Order {
     private Customer customer;
     private String orderNumber;
     private Currency price;
+
+    public Order() {
+    }
+
+    public Order(Customer customer, String orderNumber, Currency price) {
+        this.customer = customer;
+        this.orderNumber = orderNumber;
+        this.price = price;
+    }
+
+    public Order(Long id, Customer customer, String orderNumber, Currency price) {
+        this.id = id;
+        this.customer = customer;
+        this.orderNumber = orderNumber;
+        this.price = price;
+    }
 }

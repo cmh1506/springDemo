@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.domain.Student;
 import com.example.demo.service.StudentService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class StudentController {
         this.studentService = studentService;
     }
     @GetMapping("/students")
-    public List<Student> getStudents(){
+    public List<Student> getStudents() {
         return studentService.getStudents();
     }
 
