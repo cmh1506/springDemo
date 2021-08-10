@@ -18,7 +18,6 @@ public class Order {
     )
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
     private String orderNumber;
     private Currency price;

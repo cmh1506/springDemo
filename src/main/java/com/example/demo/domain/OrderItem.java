@@ -18,10 +18,8 @@ public class OrderItem {
     )
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_id", referencedColumnName = "id")
     private Item item;
     private Integer quantity;
 
