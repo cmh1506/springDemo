@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderItemService {
@@ -16,5 +17,13 @@ public class OrderItemService {
     }
     public List<OrderItem> getOrderItems() {
         return orderItemRepository.findAll();
+    }
+
+    public void addNewOrderItem(OrderItem orderItem) {
+        orderItemRepository.save(orderItem);
+    }
+
+    public Optional<OrderItem> findById(Long id) {
+        return orderItemRepository.findById(id);
     }
 }
